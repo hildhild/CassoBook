@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CassoBook</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/f776702b05.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-[#15AD64] border-gray-200 fixed w-full">
+        <div class="flex mx-auto p-4 grid-cols-6 md:grid-cols-12 grid">
+            <a href="./index.html" class="flex grid justify-items-center col-span-6 md:col-span-2 mb-2 md:mb-0">
+                <div class="flex">
+                    <h1 class="text-2xl font-semibold text-white flex">Cass</h1>
+                    <img src="https://casso.vn/wp-content/uploads/2023/10/Group-615.png" class="h-8 mt-1 flex" alt="Alternative Text">
+                    <h1 class="text-2xl font-semibold text-white">Book</h1>
+                </div>
+            </a>
+            <div class="flex col-span-6 md:col-span-9 grid grid-cols-12">
+                <div id="category-search" class="col-span-10 flex grid-cols-9 grid">
+                    <div class="p-2 col-span-1 grid justify-items-center" id="category">
+                        <button id="dropdownCategoryLink" data-dropdown-toggle="dropdownCategory" class="flex items-center w-full py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 md:w-auto ">
+                            <div class="h-full w-8">
+                                <i class="fas fa-th-large text-xl"></i>
+                            </div>
+                            <svg class="w-2.5 h-2.5 hidden md:block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                        </button>
+                        <div id="dropdownCategory" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-55 px-6">
+                            <p class="m-1">Danh mục sản phẩm</p>
+                            <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Văn học</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Kinh tế</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Tâm lý - Kỹ năng sống</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Nuôi dạy con</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Sách thiếu nhi</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Tiểu sử - Hồi ký</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Giáo khoa- Tham khảo</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Học ngoại ngữ</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="relative col-span-8 items-center">
+                        <div class="w-8 absolute inset-y-0 start-0 flex ps-3 pointer-events-none">
+                            <svg class="text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                            </svg>
+                        </div>
+                        <input type="text" id="search-navbar" class="mt-2 md:mt-0 block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="p-2 col-span-1 grid justify-items-center" id="cart">
+                    <button id="dropdownCartLink" data-dropdown-toggle="dropdownCart" class="flex items-center w-full py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 md:w-auto ">
+                        <div class="h-full w-8">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                        </div>
+                        <svg class="w-2.5 h-2.5 hidded md:block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <div id="dropdownCart" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-55 px-6">
+                        <p class="m-1">Sản phẩm trong giỏ hàng:</p>
+                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                        <p class="text-gray-600">Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-2 col-span-1 grid justify-items-center" id="account">
+                    <button id="dropdownAccountLink" data-dropdown-toggle="dropdownAccount" class="flex items-center w-full py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 md:w-auto ">
+                        <div class="h-full w-8"> 
+                            <i class="fas fa-user-circle text-xl"></i>
+                        </div>
+                        <svg class="w-2.5 h-2.5 hidden md:block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <div id="dropdownAccount" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-55 px-6">
+                        <p class="m-1">Tài khoản của tôi</p>
+                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Đơn hàng của tôi</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Danh sách yêu thích</a>
+                            </li>
+                        </ul>
+                        <div class="grid grid-cols-2 p-2">
+                            <button class="col-span-1 bg-black text-white rounded-lg mx-2 p-1">Đăng nhập</button>
+                            <button class="col-span-1 bg-blue-600 text-white rounded-lg mx-2 p-1">Đăng ký</button>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+            <div class="flex hidden md:block md:col-span-1 p-1">
+                <select name="language" id="language" class="rounded-lg p-1">
+                    <option value="VN" default>VN</option>
+                    <option value="EN" default>EN</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+    <!-- Content-->
+    <div class="grid grid-cols-12 pt-[150px] md:pt-[100px]">
+        <div class="hidden md:block md:col-span-2 mx-5"></div>
+        <div class="col-span-12 md:col-span-8 mx-5 md:mx-0">
+            <div class="bg-gray-300 rounded-lg p-2 my-2 flex">
+                <ul class="flex">
+                    <li>
+                        <a href="./index.html" title="Trang chủ" class="hover:text-blue-600">Trang chủ</a>
+                        <span> &gt; </span>
+                    </li>
+                    <li>
+                        <a href="#" title="Tâm lý - Kỹ năng sống" class="hover:text-blue-600">Tâm lý - Kỹ năng sống</a>
+                        <span> &gt; </span>
+                    </li>
+                    <li>
+                        <a href="./detail.html" title="Bí mật của may mắn" class="hover:text-blue-600">Bí mật của may mắn</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid grid-cols-2">
+                <div class="col-span-2 sm:col-span-1">
+                    <img src="./images/book.png" alt="">
+                    <div class="grid grid-cols-4">
+                        <img src="./images/book1.png" alt="" class="col-span-1 mt-5 px-5 hover:border-gray-400 hover:border-2 hover:shadow hover:rounded-lg">
+                        <img src="./images/book2.png" alt="" class="col-span-1 mt-5 px-5 hover:border-gray-400 hover:border-2 hover:shadow hover:rounded-lg">
+                        <img src="./images/book3.png" alt="" class="col-span-1 mt-5 px-5 hover:border-gray-400 hover:border-2 hover:shadow hover:rounded-lg">
+                        <img src="./images/book4.png" alt="" class="col-span-1 mt-5 px-5 hover:border-gray-400 hover:border-2 hover:shadow hover:rounded-lg">
+                    </div>
+                </div>
+                <div class="col-span-2 sm:col-span-1">
+                    <h1 class="text-3xl font-seminold">Bí mật của may mắn</h1>
+                    <h4 class="mt-2 font-semibold">Thông tin sản phẩm:</h4>
+                    <p>Mã hàng:	8936066689953</p>
+                    <p>Tên Nhà Cung Cấp:	Công ty First News - Trí Việt</p>
+                    <p>Tác giả:	Alex Rovira, Fernando Trias de Bes</p>
+                    <p>NXB:	NXB Tổng hợp TP HCM</p>
+                    <p>Năm XB:	2005</p>
+                    <p>Số trang:	154</p>
+                    <p>Hình thức:	Sách điện tử</p>
+                    <div class="price-details">
+                        <div class="price-number my-5">
+                            <p><span class="rupees grid text-3xl text-[#C92127] font-semibold">10.000 đ</span></p>
+                        </div>
+                        <div class="add-cart my-3 grid grid-cols-2 justify-items-between ">
+                            <form class="col-span-1" action="./form.html">
+                                <button class="w-[96%] mx-[2%] border-[#15AD64] border-[2px] bg-white hover:bg-[#15AD64] text-[#15AD64] hover:text-white font-semibold rounded-lg px-2 py-1">Thêm vào giỏ hàng</button>
+                            </form>
+                            <form class="col-span-1" action="./form.html">
+                                <button class="w-[96%] mx-[2%] border-[#15AD64] border-[2px] hover:bg-white bg-[#15AD64] hover:text-[#15AD64] text-white font-semibold rounded-lg px-2 py-1">Mua ngay</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1 class="font-semibold text-xl">Mô tả:</h1>
+                <p class="mt-2" style="text-align: justify;">
+                    Good Luck - Bi Mật cúa May Mán - là cuốn sách nổi tiếng và độc đáo nhất được Nhà Xuất Bán Jossey-Bass xuất bản ngày
+                    1/9/2004. Theo các công ty bản quyền châu Âu, Good Luck là cuốn sách đầu tiên trong lịch sủ hiện đại bán được bản
+                    quyền dịch ra 15 ngôn ngữ trên thế giới truớc khi đuợc xuất bản ở bất kỳ quốc gia nào (chỉ qua truyền miệng và qua 
+                    Internet). Cuôn sách dược xuất bản dầu tiên ở Tây Ban Nha vào tháng 2/2004. Chỉ trong vòng hai tuần, Good Luck đã vượt 
+                    lên dẫn đầu danh sách những cuốn sách bán chạy nhất ở Tây Ban Nha, Nhật Bản, Brazil, Mỹ, Hàn Quốc, Đài Loan và đang lan 
+                    tỏa nhanh chóng sang các quốc gia, châu lục khác những tháng đầu năm 2005.
+                </p>
+                <p class="mt-2" style="text-align: justify;">
+                    Câu chuyện trong Bí Mật cúa May Mắn hấp dẫn như câu chuyện thần thoại với những chân lý thực tế và vīnh hằng của cuộc 
+                    sống, mang lại cho người dọc niềm tin, hy vọng, những trải nghiệm quý báu, đồng thời lý giải tại sao một số người luôn 
+                    gặp được may mắn trong khi những người khác lại không gặp. Cuốn sách đã mang đến cho độc giả một cái nhìn thú vị và sâu 
+                    sắc về thay đổi những điều kiện cần thiết để tạo ra và duy trì sự may mắn trong cuộc đời chúng ta. Độc giả khắp mọi nơi 
+                    đã chú tâm thưởng thức, chuyền tay cho bè bạn và mỗi người đều mua nhiều bản để tặng cho gia đình, người thân, đồng 
+                    nghiệp như những món quà đạ̄c biệt của sụ may mắn.
+                </p>
+                <p class="mt-2" style="text-align: justify;">
+                    Good Luck là một câu chuyện lạ thường hướng dộc giả đến một bài học vô cùng giá trị về cuộc sống: Sự may mắn không xuất 
+                    hiện ngẫu nhiên trong hành trình cuộc sống chúng ta; chính chúng ta phải tìm và tạo ra những điều kiện để may mắn tìm 
+                    đến với mình. Dưới ngòi bút của Alex Rovira và Fernando Trías de Bes - hai nhà tư vấn tâm lý và tiếp thị hàng đầu thế 
+                    giới đã có công trình nghiên cứu về thái độ, hành vi con người cũng như ước mong, niềm tin của họ đối với sự may mắn, 
+                    thành công trong cuộc sống. Câu chuyện giản dị này có thể được áp dụng rất rộng răi cho tất cá mọi người và có khả năng 
+                    khích lệ một cách độc đáo. Bi Mật cúa May Măn kể về một câu chuyện đầy cảm dộng giưa hai ông già, Max và Jim, khi họ 
+                    tình cờ gặp nhau ơ công viên trung tâm sau 50 năm xa cách. Trong khi Max đạt được những thành công và hạnh phúc tràn 
+                    đầy trong cuộc đời từ sự khởi đầu vô cùng khó khăn, từ hai bàn tay trắng, thì Jim lại không thể làm được điều đó, lúc 
+                    khởi đầu ông đã được cuộc sống ưu đãi rất nhiều. Bí quyết thành công và may mắn của Max nằm ở câu chuyện kỳ diệu mà 
+                    người ông đã kể lại cho Max từ nhiều năm trước. Câu chuyện đó thật kỳ bí và có sắc thái gợi nhớ đến những nhà giả kim, 
+                    hiền triết xa xua, chỉ ra bí mật, cách nắm bắt các cơ hội và gặt hái may mắn, thành công. Trong doạn kết đầy bất ngờ, 
+                    Good Luck tạo ra một chu trình khép kín, mang lại sự khích lệ, nhừng hướng dẫn cách thực hiện và thật trọn vẹn với một 
+                    câu chuyện đầy cuốn hút. Đây thực sự là một món quà đặc biệt, thú vị và đầy cảm hứng mà Alex Rovira và Fernando Trías 
+                    de Bes đã mang đến cho chúng ta.
+                </p>
+            </div>
+        </div>
+        <div class="md:col-span-2 hidden md:block"></div>
+    </div>
+    <!-- Footer -->
+    <div class="container-fluid bg-[#15AD64] mt-[100px] py-5">
+        <div class="grid grid-rows-3 items-center justify-items-center">
+            <a href="./index.html" class="flex grid justify-items-center row-span-1">
+                <div class="flex">
+                    <h1 class="text-2xl font-semibold text-white flex">Cass</h1>
+                    <img src="https://casso.vn/wp-content/uploads/2023/10/Group-615.png" class="h-8 mt-1 flex" alt="Alternative Text">
+                    <h1 class="text-2xl font-semibold text-white">Book</h1>
+                </div>
+            </a>
+            <p class="row-span-2 text-white">Lầu 5, 123 Tạ Quang Bửu, Đông Hòa, Dĩ An, Bình Dương</p>
+            <ul class="row-span-3 flex text-white gap-3">
+                <li><a href="#"><i class="fa-brands fa-facebook hover:text-blue-600"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram hover:text-blue-600"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-youtube hover:text-blue-600"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

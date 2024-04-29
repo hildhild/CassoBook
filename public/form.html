@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CassoBook</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/f776702b05.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-[#15AD64] border-gray-200 fixed w-full">
+        <div class="flex mx-auto p-4 grid-cols-6 md:grid-cols-12 grid">
+            <a href="./index.html" class="flex grid justify-items-center col-span-6 md:col-span-2 mb-2 md:mb-0">
+                <div class="flex">
+                    <h1 class="text-2xl font-semibold text-white flex">Cass</h1>
+                    <img src="https://casso.vn/wp-content/uploads/2023/10/Group-615.png" class="h-8 mt-1 flex" alt="Alternative Text">
+                    <h1 class="text-2xl font-semibold text-white">Book</h1>
+                </div>
+            </a>
+            <div class="flex col-span-6 md:col-span-9 grid grid-cols-12">
+                <div id="category-search" class="col-span-10 flex grid-cols-9 grid">
+                    <div class="p-2 col-span-1 grid justify-items-center" id="category">
+                        <button id="dropdownCategoryLink" data-dropdown-toggle="dropdownCategory" class="flex items-center w-full py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 md:w-auto ">
+                            <div class="h-full w-8">
+                                <i class="fas fa-th-large text-xl"></i>
+                            </div>
+                            <svg class="w-2.5 h-2.5 hidden md:block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                        </button>
+                        <div id="dropdownCategory" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-55 px-6">
+                            <p class="m-1">Danh mục sản phẩm</p>
+                            <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Văn học</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Kinh tế</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Tâm lý - Kỹ năng sống</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Nuôi dạy con</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Sách thiếu nhi</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Tiểu sử - Hồi ký</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Giáo khoa- Tham khảo</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Học ngoại ngữ</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="relative col-span-8 items-center">
+                        <div class="w-8 absolute inset-y-0 start-0 flex ps-3 pointer-events-none">
+                            <svg class="text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                            </svg>
+                        </div>
+                        <input type="text" id="search-navbar" class="mt-2 md:mt-0 block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="p-2 col-span-1 grid justify-items-center" id="cart">
+                    <button id="dropdownCartLink" data-dropdown-toggle="dropdownCart" class="flex items-center w-full py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 md:w-auto ">
+                        <div class="h-full w-8">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                        </div>
+                        <svg class="w-2.5 h-2.5 hidded md:block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <div id="dropdownCart" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-55 px-6">
+                        <p class="m-1">Sản phẩm trong giỏ hàng:</p>
+                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                        <p class="text-gray-600">Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-2 col-span-1 grid justify-items-center" id="account">
+                    <button id="dropdownAccountLink" data-dropdown-toggle="dropdownAccount" class="flex items-center w-full py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 md:w-auto ">
+                        <div class="h-full w-8"> 
+                            <i class="fas fa-user-circle text-xl"></i>
+                        </div>
+                        <svg class="w-2.5 h-2.5 hidden md:block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <div id="dropdownAccount" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-55 px-6">
+                        <p class="m-1">Tài khoản của tôi</p>
+                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Đơn hàng của tôi</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Danh sách yêu thích</a>
+                            </li>
+                        </ul>
+                        <div class="grid grid-cols-2 p-2">
+                            <button class="col-span-1 bg-black text-white rounded-lg mx-2 p-1">Đăng nhập</button>
+                            <button class="col-span-1 bg-blue-600 text-white rounded-lg mx-2 p-1">Đăng ký</button>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+            <div class="flex hidden md:block md:col-span-1 p-1">
+                <select name="language" id="language" class="rounded-lg p-1">
+                    <option value="VN" default>VN</option>
+                    <option value="EN" default>EN</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+    <!-- Content-->
+    <div class="grid grid-cols-12 pt-[150px] md:pt-[100px]">
+        <div class="hidden md:block md:col-span-2 mx-5"></div>
+        <div class="col-span-12 md:col-span-8 mx-5 md:mx-0">
+            <div class="form" onsubmit="submit()" onreset="reset()">
+                <form action="/create-payment-link" method="post">
+                    <h1 class="text-white font-semibold bg-[#15AD64] rounded-lg py-2 my-2 flex">
+                        <i class="fa-solid fa-user px-2 pt-1"></i>
+                        Thông tin khách hàng
+                    </h1>
+                    <div class="w-full">
+                        <label for="fullName" class="form-label font-semibold">Họ và tên người nhận:</label>
+                        <input type="text" class="mt-3 mb-5 form-control w-full rounded-lg" id="fullName">
+                    </div>
+                    <div class="w-full">
+                        <label for="email" class="form-label font-semibold">Email:</label>
+                        <input type="email" class="mt-3 mb-5 form-control w-full rounded-lg" id="email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="w-full">
+                        <label for="phone" class="form-label font-semibold">Số điện thoại:</label>
+                        <input type="text" class="mt-3 mb-5 form-control w-full rounded-lg" id="phone">
+                    </div>
+                    <div class="w-full">
+                        <label for="birthday" class="form-label font-semibold">Ngày sinh:</label>
+                        <div class="w-full mt-3 mb-5 ">
+                            <div class="flex grid grid-cols-3">
+                                <div class="col-span-1 grid justify-items-start">
+                                    <select class="form-select rounded-lg w-[90%] py-1 px-3" aria-label="Day" id="day">
+                                        <option selected value="NaN">-- Chọn ngày --</option>
+                                    </select>
+                                </div>
+                                <div class="col-span-1 grid justify-items-center">
+                                    <select class="form-select rounded-lg w-[90%] py-1 px-3" aria-label="Month" id="month">
+                                        <option selected value="NaN">-- Chọn tháng --</option>
+                                    </select>
+                                </div>
+                                <div class="col-span-1 grid justify-items-end">
+                                    <select class="form-select rounded-lg w-[90%] py-1 px-3" aria-label="Year" id="year">
+                                        <option selected value="NaN">-- Chọn năm --</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <label for="gender" class="form-label font-semibold">Giới tính:</label>
+                        <div class="flex grid grid-cols-3 mt-3 mb-5 ">
+                            <div class="col-span-1">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input mr-3" type="radio" name="gender" id="male" value="Nam" checked>
+                                    <label class="form-check-label" for="male">Nam</label>
+                                </div>
+                            </div>
+                            <div class="col-span-1 ml-[5%]">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input mr-3" type="radio" name="gender" id="female" value="Nữ">
+                                    <label class="form-check-label" for="female">Nữ</label>
+                                </div>
+                            </div>
+                            <div class="col-span-1 ml-[10%]">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input mr-3" type="radio" name="gender" id="undefined" value="Khác">
+                                    <label class="form-check-label" for="undefined">Khác</label>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="w-full">
+                        <label for="country" class="form-label font-semibold">Quốc gia:</label>
+                        <select class="form-select w-full rounded-lg py-1 px-3 mt-3 mb-5 " aria-label="Country" id="country">
+                            <option selected value="NaN">-- Chọn quốc gia --</option>
+                            <option value="Việt Nam">Việt Nam</option>
+                            <option value="Úc">Úc</option>
+                            <option value="Vương quốc Anh">Vương quốc Anh</option>
+                            <option value="Mỹ">Mỹ</option>
+                            <option value="Ấn Độ">Ấn Độ</option>
+                            <option value="Khác">Khác</option>
+                        </select>
+                    </div>
+                    <div class="w-full">
+                        <label for="note" class="form-label font-semibold">Ghi chú:</label>
+                        <textarea class="mt-3 mb-5 form-control w-full rounded-lg p-3" id="note" rows="5"></textarea>
+                    </div>
+                    <h1 class="text-white font-semibold bg-[#15AD64] rounded-lg py-2 my-2 flex">
+                        <i class="fa-solid fa-money-bill px-2 pt-1"></i>
+                        Phương thức thanh toán
+                    </h1>
+                    <div class="w-full mt-3 mb-5 ">
+                        <div class="form-check form-check-inline flex items-center">
+                            <input class="form-check-input mr-3" type="radio" name="pay" id="vietqr" value="vietqr" checked>
+                            <img src="./images/vietqr.png" alt="" class="rounded-lg w-[50px] h-auto border-gray-400 border-2 mr-5">
+                            <label class="form-check-label" for="vietqr">VietQR</label>
+                        </div>
+                    </div>
+                    <h1 class="text-white font-semibold bg-[#15AD64] rounded-lg py-2 my-2 flex">
+                        <i class="fa-solid fa-cart-shopping px-2 pt-1"></i>
+                        Kiểm tra lại đơn hàng
+                    </h1>
+                    <div class="mt-3 mb-8 grid grid-cols-7 flex items-center justify-items-start">
+                        <div class="col-span-1">
+                            <img src="./images/book.png" alt="" class="w-full">
+                        </div>
+                        <div class="col-span-3">Bí mật của may mắn</div>
+                        <div class="col-span-1">10.000 đ</div>
+                        <div class="col-span-1">1</div>
+                        <div class="col-span-1 text-[orange] font-semibold">10.000 đ</div>
+                    </div>
+                    <div class="form-check form-check-inline flex items-center">
+                        <input class="form-check-input mr-3" type="checkbox" name="gender" id="agree">
+                        <label class="form-check-label flex" for="agree">Bằng việc tiến hành mua hàng, bạn đồng ý với <a href="#" class="text-blue-600 ml-1 font-semibold hover:text-blue-900"> Điều khoản và điều kiện của CassoBook</a></label>
+                    </div>
+                    <div class="more w-full items-center mt-8 grid grid-cols-3">
+                        <div class="col-span-1"></div>
+                        <button onclick="createCookie()" class="border-[#15AD64] border-[2px] hover:bg-white bg-[#15AD64] hover:text-[#15AD64] text-white rounded-lg py-2 px-5 col-span-1">Xác nhận thanh toán</button>
+                        <div class="col-span-1"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="md:col-span-2 hidden md:block"></div>
+    </div>
+    <!-- Footer -->
+    <div class="container-fluid bg-[#15AD64] mt-[100px] py-5">
+        <div class="grid grid-rows-3 items-center justify-items-center">
+            <a href="./index.html" class="flex grid justify-items-center row-span-1">
+                <div class="flex">
+                    <h1 class="text-2xl font-semibold text-white flex">Cass</h1>
+                    <img src="https://casso.vn/wp-content/uploads/2023/10/Group-615.png" class="h-8 mt-1 flex" alt="Alternative Text">
+                    <h1 class="text-2xl font-semibold text-white">Book</h1>
+                </div>
+            </a>
+            <p class="row-span-2 text-white">Lầu 5, 123 Tạ Quang Bửu, Đông Hòa, Dĩ An, Bình Dương</p>
+            <ul class="row-span-3 flex text-white gap-3">
+                <li><a href="#"><i class="fa-brands fa-facebook hover:text-blue-600"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram hover:text-blue-600"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-youtube hover:text-blue-600"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var day = document.getElementById('day');
+        for (var i = 1; i <= 31; i++) {
+            var option = document.createElement('option');
+            option.value = i;
+            option.text = i;
+            day.appendChild(option);
+        }
+        var month = document.getElementById('month');
+        for (var i = 1; i <= 12; i++) {
+            var option = document.createElement('option');
+            option.value = i;
+            option.text = i;
+            month.appendChild(option);
+        }
+        var year = document.getElementById('year');
+        for (var i = 2023; i >= 1900; i--) {
+            var option = document.createElement('option');
+            option.value = i;
+            option.text = i;
+            year.appendChild(option);
+        }
+        function createCookie(){
+            var fullName = document.getElementById("fullName").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var day = document.getElementById("day").value;
+            var month = document.getElementById("month").value;
+            var year = document.getElementById("year").value;
+            var gender = document.getElementsByName("gender")[0].value;
+            var country = document.getElementById("country").value;
+            var note = document.getElementById("note").value;
+
+            const d = new Date();
+            d.setTime(d.getTime() + (5*60*1000)); 
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = "fullName=" + fullName + ";" +expires + ";path=/";
+            document.cookie = "email=" + email + ";" +expires + ";path=/";
+            document.cookie = "phone=" + phone + ";" +expires + ";path=/";
+            document.cookie = "birthday=" + `${day}/${month}/${year}` + ";" +expires + ";path=/"; 
+            document.cookie = "gender=" + gender + ";" +expires + ";path=/";
+            document.cookie = "country=" + country + ";" +expires + ";path=/";
+            document.cookie = "note=" + note + ";" +expires + ";path=/";
+            return;
+        }
+    </script>
+</body>
+</html>

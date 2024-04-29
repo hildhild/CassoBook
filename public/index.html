@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CassoBook</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/f776702b05.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-[#15AD64] border-gray-200 fixed w-full">
+        <div class="flex mx-auto p-4 grid-cols-6 md:grid-cols-12 grid">
+            <a href="./index.html" class="flex grid justify-items-center col-span-6 md:col-span-2 mb-2 md:mb-0">
+                <div class="flex">
+                    <h1 class="text-2xl font-semibold text-white flex">Cass</h1>
+                    <img src="https://casso.vn/wp-content/uploads/2023/10/Group-615.png" class="h-8 mt-1 flex" alt="Alternative Text">
+                    <h1 class="text-2xl font-semibold text-white">Book</h1>
+                </div>
+            </a>
+            <div class="flex col-span-6 md:col-span-9 grid grid-cols-12">
+                <div id="category-search" class="col-span-10 flex grid-cols-9 grid">
+                    <div class="p-2 col-span-1 grid justify-items-center" id="category">
+                        <button id="dropdownCategoryLink" data-dropdown-toggle="dropdownCategory" class="flex items-center w-full py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 md:w-auto ">
+                            <div class="h-full w-8">
+                                <i class="fas fa-th-large text-xl"></i>
+                            </div>
+                            <svg class="w-2.5 h-2.5 hidden md:block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                        </button>
+                        <div id="dropdownCategory" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-55 px-6">
+                            <p class="m-1">Danh mục sản phẩm</p>
+                            <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Văn học</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Kinh tế</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Tâm lý - Kỹ năng sống</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Nuôi dạy con</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Sách thiếu nhi</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Tiểu sử - Hồi ký</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Giáo khoa- Tham khảo</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Học ngoại ngữ</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="relative col-span-8 items-center">
+                        <div class="w-8 absolute inset-y-0 start-0 flex ps-3 pointer-events-none">
+                            <svg class="text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                            </svg>
+                        </div>
+                        <input type="text" id="search-navbar" class="mt-2 md:mt-0 block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="p-2 col-span-1 grid justify-items-center" id="cart">
+                    <button id="dropdownCartLink" data-dropdown-toggle="dropdownCart" class="flex items-center w-full py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 md:w-auto ">
+                        <div class="h-full w-8">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                        </div>
+                        <svg class="w-2.5 h-2.5 hidded md:block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <div id="dropdownCart" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-55 px-6">
+                        <p class="m-1">Sản phẩm trong giỏ hàng:</p>
+                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                        <p class="text-gray-600">Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-2 col-span-1 grid justify-items-center" id="account">
+                    <button id="dropdownAccountLink" data-dropdown-toggle="dropdownAccount" class="flex items-center w-full py-2 px-3 text-white rounded md:hover:bg-transparent md:border-0 hover:text-blue-700 md:p-0 md:w-auto ">
+                        <div class="h-full w-8">
+                            <i class="fas fa-user-circle text-xl"></i>
+                        </div>
+                        <svg class="w-2.5 h-2.5 hidden md:block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <div id="dropdownAccount" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-55 px-6">
+                        <p class="m-1">Tài khoản của tôi</p>
+                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Đơn hàng của tôi</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Danh sách yêu thích</a>
+                            </li>
+                        </ul>
+                        <div class="grid grid-cols-2 p-2">
+                            <button class="col-span-1 bg-black text-white rounded-lg mx-2 p-1">Đăng nhập</button>
+                            <button class="col-span-1 bg-blue-600 text-white rounded-lg mx-2 p-1">Đăng ký</button>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+            <div class="flex hidden md:block md:col-span-1 p-1">
+                <select name="language" id="language" class="rounded-lg p-1">
+                    <option value="VN" default>VN</option>
+                    <option value="EN" default>EN</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+    <!-- Content-->
+    <div class="grid grid-cols-12 pt-[150px] md:pt-[100px]">
+        <div class="hidden sm:block sm:col-span-4 md:col-span-2 mx-5">
+            <h1 class="text-white font-semibold bg-[#15AD64] rounded-lg py-2 my-2 flex">
+                <i class="fa-regular fa-circle-check px-2 pt-1"></i>
+                Top bán chạy tuần
+            </h1>
+            <select name="hotcategory" id="hotcategory" class="w-full p-1 rounded-lg">
+                <option value="1">Văn học</option>
+                <option value="2">Kinh tế</option>
+                <option value="3">Tâm lý - Kỹ năng sống</option>
+                <option value="4">Nuôi dạy con</option>
+                <option value="5">Sách thiếu nhi</option>
+                <option value="6">Tiểu sử - Hồi ký</option>
+                <option value="7">Giáo khoa- Tham khảo</option>
+                <option value="8">Học ngoại ngữ</option>
+            </select>
+            <ul class="mt-5">
+                <li class="mb-3 hover:border-gray-400 hover:border-2 hover:shadow">
+                    <a href="./detail.html" style="text-decoration: none;" class="grid grid-cols-12">
+                        <div class="col-span-1 mt-5">
+                            <i class="fa-solid fa-1 ml-2"></i>
+                        </div>
+                        <img class="img-content col-span-4 h-full" src="./images/book.png" alt="">
+                        <div class="col-span-7">
+                            <h2>Bí mật của may mắn</h2>
+                            <p class="text-blue-600">1000 điểm</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="mb-3 hover:border-gray-400 hover:border-2 hover:shadow">
+                    <a href="./detail.html" style="text-decoration: none;" class="grid grid-cols-12">
+                        <div class="col-span-1 mt-5">
+                            <i class="fa-solid fa-2 ml-2"></i>
+                        </div>
+                        <img class="img-content col-span-4 h-full" src="./images/book.png" alt="">
+                        <div class="col-span-7">
+                            <h2>Bí mật của may mắn</h2>
+                            <p class="text-blue-600">1000 điểm</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="mb-3 hover:border-gray-400 hover:border-2 hover:shadow">
+                    <a href="./detail.html" style="text-decoration: none;" class="grid grid-cols-12">
+                        <div class="col-span-1 mt-5">
+                            <i class="fa-solid fa-3 ml-2"></i>
+                        </div>
+                        <img class="img-content col-span-4 h-full" src="./images/book.png" alt="">
+                        <div class="col-span-7">
+                            <h2>Bí mật của may mắn</h2>
+                            <p class="text-blue-600">1000 điểm</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="mb-3 hover:border-gray-400 hover:border-2 hover:shadow">
+                    <a href="./detail.html" style="text-decoration: none;" class="grid grid-cols-12">
+                        <div class="col-span-1 mt-5">
+                            <i class="fa-solid fa-4 ml-2"></i>
+                        </div>
+                        <img class="img-content col-span-4 h-full" src="./images/book.png" alt="">
+                        <div class="col-span-7">
+                            <h2>Bí mật của may mắn</h2>
+                            <p class="text-blue-600">1000 điểm</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="mb-3 hover:border-gray-400 hover:border-2 hover:shadow">
+                    <a href="./detail.html" style="text-decoration: none;" class="grid grid-cols-12">
+                        <div class="col-span-1 mt-5">
+                            <i class="fa-solid fa-5 ml-2"></i>
+                        </div>
+                        <img class="img-content col-span-4 h-full" src="./images/book.png" alt="">
+                        <div class="col-span-7">
+                            <h2>Bí mật của may mắn</h2>
+                            <p class="text-blue-600">1000 điểm</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-span-12 sm:col-span-8 md:col-span-8 mx-5 md:mx-0">
+            <h1 class="text-white font-semibold bg-[#15AD64] rounded-lg py-2 my-2 flex">
+                <i class="fa-solid fa-arrow-trend-up px-2 pt-1"></i>
+                Xu hướng mua sắm
+            </h1>
+            <div class="grid grid-rows-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+                    <div class="col-span-1 grid justify-items-center hover:border-gray-400 hover:border-2 hover:shadow">
+                        <a href="./detail.html" style="text-decoration: none;">
+                            <img class="img-content" src="./images/book.png" alt="">
+                            <h2 class="justify-items-center grid font-semibold text-l">Bí mật của may mắn</h2>
+                        </a>
+                        <div class="price-details">
+                            <div class="price-number">
+                                <p><span class="rupees grid justify-items-center text-xl text-[#C92127] font-semibold">10.000 đ</span></p>
+                            </div>
+                            <div class="add-cart my-3">
+                                <h4><a href="./detail.html" class="border-[#15AD64] border-[2px] bg-white hover:bg-[#15AD64] text-[#15AD64] hover:text-white font-semibold rounded-lg px-2 py-1">Xem chi tiết</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-1 grid justify-items-center hover:border-gray-400 hover:border-2 hover:shadow">
+                        <a href="./detail.html" style="text-decoration: none;">
+                            <img class="img-content" src="./images/book.png" alt="">
+                            <h2 class="justify-items-center grid font-semibold text-l">Bí mật của may mắn</h2>
+                        </a>
+                        <div class="price-details">
+                            <div class="price-number">
+                                <p><span class="rupees grid justify-items-center text-xl text-[#C92127] font-semibold">10.000 đ</span></p>
+                            </div>
+                            <div class="add-cart my-3">
+                                <h4><a href="./detail.html" class="border-[#15AD64] border-[2px] bg-white hover:bg-[#15AD64] text-[#15AD64] hover:text-white font-semibold rounded-lg px-2 py-1">Xem chi tiết</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-1 grid justify-items-center hover:border-gray-400 hover:border-2 hover:shadow">
+                        <a href="./detail.html" style="text-decoration: none;">
+                            <img class="img-content" src="./images/book.png" alt="">
+                            <h2 class="justify-items-center grid font-semibold text-l">Bí mật của may mắn</h2>
+                        </a>
+                        <div class="price-details">
+                            <div class="price-number">
+                                <p><span class="rupees grid justify-items-center text-xl text-[#C92127] font-semibold">10.000 đ</span></p>
+                            </div>
+                            <div class="add-cart my-3">
+                                <h4><a href="./detail.html" class="border-[#15AD64] border-[2px] bg-white hover:bg-[#15AD64] text-[#15AD64] hover:text-white font-semibold rounded-lg px-2 py-1">Xem chi tiết</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-1 grid justify-items-center hover:border-gray-400 hover:border-2 hover:shadow">
+                        <a href="./detail.html" style="text-decoration: none;">
+                            <img class="img-content" src="./images/book.png" alt="">
+                            <h2 class="justify-items-center grid font-semibold text-l">Bí mật của may mắn</h2>
+                        </a>
+                        <div class="price-details">
+                            <div class="price-number">
+                                <p><span class="rupees grid justify-items-center text-xl text-[#C92127] font-semibold">10.000 đ</span></p>
+                            </div>
+                            <div class="add-cart my-3">
+                                <h4><a href="./detail.html" class="border-[#15AD64] border-[2px] bg-white hover:bg-[#15AD64] text-[#15AD64] hover:text-white font-semibold rounded-lg px-2 py-1">Xem chi tiết</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+                    <div class="col-span-1 grid justify-items-center hover:border-gray-400 hover:border-2 hover:shadow">
+                        <a href="./detail.html" style="text-decoration: none;">
+                            <img class="img-content" src="./images/book.png" alt="">
+                            <h2 class="justify-items-center grid font-semibold text-l">Bí mật của may mắn</h2>
+                        </a>
+                        <div class="price-details">
+                            <div class="price-number">
+                                <p><span class="rupees grid justify-items-center text-xl text-[#C92127] font-semibold">10.000 đ</span></p>
+                            </div>
+                            <div class="add-cart my-3">
+                                <h4><a href="./detail.html" class="border-[#15AD64] border-[2px] bg-white hover:bg-[#15AD64] text-[#15AD64] hover:text-white font-semibold rounded-lg px-2 py-1">Xem chi tiết</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-1 grid justify-items-center hover:border-gray-400 hover:border-2 hover:shadow">
+                        <a href="./detail.html" style="text-decoration: none;">
+                            <img class="img-content" src="./images/book.png" alt="">
+                            <h2 class="justify-items-center grid font-semibold text-l">Bí mật của may mắn</h2>
+                        </a>
+                        <div class="price-details">
+                            <div class="price-number">
+                                <p><span class="rupees grid justify-items-center text-xl text-[#C92127] font-semibold">10.000 đ</span></p>
+                            </div>
+                            <div class="add-cart my-3">
+                                <h4><a href="./detail.html" class="border-[#15AD64] border-[2px] bg-white hover:bg-[#15AD64] text-[#15AD64] hover:text-white font-semibold rounded-lg px-2 py-1">Xem chi tiết</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-1 grid justify-items-center hover:border-gray-400 hover:border-2 hover:shadow">
+                        <a href="./detail.html" style="text-decoration: none;">
+                            <img class="img-content" src="./images/book.png" alt="">
+                            <h2 class="justify-items-center grid font-semibold text-l">Bí mật của may mắn</h2>
+                        </a>
+                        <div class="price-details">
+                            <div class="price-number">
+                                <p><span class="rupees grid justify-items-center text-xl text-[#C92127] font-semibold">10.000 đ</span></p>
+                            </div>
+                            <div class="add-cart my-3">
+                                <h4><a href="./detail.html" class="border-[#15AD64] border-[2px] bg-white hover:bg-[#15AD64] text-[#15AD64] hover:text-white font-semibold rounded-lg px-2 py-1">Xem chi tiết</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-1 grid justify-items-center hover:border-gray-400 hover:border-2 hover:shadow">
+                        <a href="./detail.html" style="text-decoration: none;">
+                            <img class="img-content" src="./images/book.png" alt="">
+                            <h2 class="justify-items-center grid font-semibold text-l">Bí mật của may mắn</h2>
+                        </a>
+                        <div class="price-details">
+                            <div class="price-number">
+                                <p><span class="rupees grid justify-items-center text-xl text-[#C92127] font-semibold">10.000 đ</span></p>
+                            </div>
+                            <div class="add-cart my-3">
+                                <h4><a href="./detail.html" class="border-[#15AD64] border-[2px] bg-white hover:bg-[#15AD64] text-[#15AD64] hover:text-white font-semibold rounded-lg px-2 py-1">Xem chi tiết</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="more w-full items-center mt-8 grid grid-cols-3">
+                <div class="col-span-1"></div>
+                <button class="border-[#15AD64] border-[2px] bg-white hover:bg-[#15AD64] text-[#15AD64] hover:text-white rounded-lg py-2 px-5 col-span-1">Xem thêm</button>
+                <div class="col-span-1"></div>
+            </div>
+        </div>
+        <div class="md:col-span-2 hidden md:block mt-2">
+            <img class="advert mx-[10%] w-[80%]" src="https://lambanner.com/wp-content/uploads/2016/08/4dduOT57856_r_2.gif" alt="" />
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="container-fluid bg-[#15AD64] mt-[100px] py-5">
+        <div class="grid grid-rows-3 items-center justify-items-center">
+            <a href="./index.html" class="flex grid justify-items-center row-span-1">
+                <div class="flex">
+                    <h1 class="text-2xl font-semibold text-white flex">Cass</h1>
+                    <img src="https://casso.vn/wp-content/uploads/2023/10/Group-615.png" class="h-8 mt-1 flex" alt="Alternative Text">
+                    <h1 class="text-2xl font-semibold text-white">Book</h1>
+                </div>
+            </a>
+            <p class="row-span-2 text-white">Lầu 5, 123 Tạ Quang Bửu, Đông Hòa, Dĩ An, Bình Dương</p>
+            <ul class="row-span-3 flex text-white gap-3">
+                <li><a href="#"><i class="fa-brands fa-facebook hover:text-blue-600"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram hover:text-blue-600"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-youtube hover:text-blue-600"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
