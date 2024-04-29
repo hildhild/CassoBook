@@ -12,5 +12,5 @@ npm run dev
 ```
 2. Kết nối với ứng dụng qua đường dẫn
 ```url
-	https://localhost:3000
+	http://localhost:3000
 ```
